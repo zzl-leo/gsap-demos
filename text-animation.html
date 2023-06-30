@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/text-animation.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="text-anim">I'm a text with elastic effect</h1>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            animation_text_1("#text-anim");
+        })
+
+        function animation_text_1(element) {
+            console.log(11)
+            var newText = "";
+            var theText = document.querySelector(element);
+            for (i = 0; i < theText.innerText.length; i++) {
+                newText += "<div>";
+                if (theText.innerText[i] == " ") {
+                    newText += "&nbsp;"
+                } else {
+                    newText += theText.innerText[i];
+                }
+                newText += "</div>";
+            }
+            theText.innerHTML = newText;
+            console.log(theText)
+            var targetsDiv = document.querySelectorAll(element + " div");
+
+            // staggerFromTo: 将一组目标从一组公共值补间到一组公共值，但将它们的开始时间错开指定的时间量，从而使用极少的代码创建均匀间隔的序列。
+            // targets: 数组 应用对象
+            // 持续时间：秒
+            // fromVars 起始状态 eg: {left:100, top:200} Object
+            // toVars 结束状态 Object
+            // stagger Number | Object | Function 错开每个补间开始时间的时间量（以秒为单位）
+            TweenMax.staggerFromTo(targetsDiv, 0.4, {
+                opacity: 0,
+                y: 90,
+                ease: Back.easeOut.config(1.7)
+            }, {
+                opacity: 1,
+                y: 0,
+                ease: Back.easeOut.config(1.7)
+            }, 0.03);
+        }
+    </script>
+</body>
+
+</html>

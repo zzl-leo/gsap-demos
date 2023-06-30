@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:800&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Open Sans";
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    max-width: 100%;
+    height: 500px;
+    background: linear-gradient(to bottom, #405166 0%, #656f6f 100%);
+    flex-direction: column;
+}
+
+.container h1 {
+    color: #fff;
+    max-width: 50%;
+    /* transform: translateX(-50%) rotate(-10deg); */
+}
+.container h1 div {
+    display: inline-block;
+    color: #e55643;
+    /* transform: skew(-10deg); */
+    text-shadow: #533d4a 1px 1px,#533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+}
